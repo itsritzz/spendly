@@ -704,12 +704,252 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ------------------------------------------------------------------ */
+/* Profile page                                                        */
+/* ------------------------------------------------------------------ */
+
+.profile-section {
+    padding: 3rem 2rem 6rem;
+}
+
+.profile-container {
+    max-width: 880px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.profile-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 2rem;
+}
+
+.profile-card-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+}
+
+/* User info card */
+.profile-user-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.profile-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--paper);
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    text-transform: uppercase;
+}
+
+.profile-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 0.25rem;
+}
+
+.profile-email {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    margin-bottom: 0.25rem;
+}
+
+.profile-since {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.profile-since svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Summary stats */
+.profile-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.profile-stat-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.profile-stat-icon {
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.profile-stat-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.profile-stat-label {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+}
+
+.profile-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--ink);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Transaction table */
+.profile-table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.profile-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.profile-table th {
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0 0 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-table td {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--ink-soft);
+}
+
+.profile-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.profile-table tbody tr:hover {
+    background: var(--paper);
+}
+
+.profile-table th.text-right,
+.profile-table td.text-right {
+    text-align: right;
+}
+
+.profile-table-date {
+    white-space: nowrap;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+}
+
+.profile-table-amount {
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+}
+
+/* Category badges */
+.category-badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.category-food          { background: var(--accent-light); color: var(--accent); }
+.category-transport     { background: var(--accent-2-light); color: var(--accent-2); }
+.category-bills         { background: var(--danger-light); color: var(--danger); }
+.category-health        { background: #eef0fb; color: #4a56a8; }
+.category-entertainment { background: #f3eefb; color: #7c4dba; }
+.category-shopping      { background: #fef3ea; color: #c17f24; }
+.category-other         { background: var(--paper-warm); color: var(--ink-muted); }
+
+/* Category breakdown bars */
+.profile-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.profile-cat-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 70px;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-cat-name {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-align: right;
+}
+
+.profile-cat-bar-track {
+    height: 10px;
+    background: var(--border-soft);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.profile-cat-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.4s ease;
+}
+
+.category-bar-bills         { background: var(--danger); }
+.category-bar-shopping      { background: var(--accent-2); }
+.category-bar-transport     { background: var(--accent-2); }
+.category-bar-health        { background: #4a56a8; }
+.category-bar-food          { background: var(--accent); }
+.category-bar-entertainment { background: #7c4dba; }
+.category-bar-other         { background: var(--ink-faint); }
+
+.profile-cat-amount {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------------ */
 /* Responsive                                                          */
 /* ------------------------------------------------------------------ */
 
 @media (max-width: 900px) {
     .mock-win-stats { grid-template-columns: 1fr; }
     .features-inner { grid-template-columns: 1fr; }
+    .profile-stats { grid-template-columns: 1fr; }
+    .profile-cat-row { grid-template-columns: 80px 1fr 60px; }
 }
 
 @media (max-width: 600px) {
@@ -717,4 +957,8 @@ a { color: inherit; text-decoration: none; }
     .hero { padding: 3rem 1rem 2rem; }
     .hero-actions { flex-direction: column; width: 100%; }
     .btn-hero { width: 100%; text-align: center; }
+    .profile-user-card { flex-direction: column; text-align: center; }
+    .profile-since { justify-content: center; }
+    .profile-table { font-size: 0.8rem; }
+    .profile-cat-row { grid-template-columns: 70px 1fr 55px; gap: 0.5rem; }
 }
