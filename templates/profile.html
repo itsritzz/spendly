@@ -22,6 +22,20 @@
             </div>
         </div>
 
+        {# ---- Date filter ---- #}
+        <div class="profile-card">
+            <form class="profile-filter-form" method="GET" action="{{ url_for('profile') }}">
+                <label for="start">From</label>
+                <input type="date" id="start" name="start" value="{{ start }}" class="form-input">
+                <label for="end">To</label>
+                <input type="date" id="end" name="end" value="{{ end }}" class="form-input">
+                <button type="submit" class="btn-filter">Filter</button>
+                {% if start or end %}
+                <a href="{{ url_for('profile') }}" class="btn-filter-clear">Clear</a>
+                {% endif %}
+            </form>
+        </div>
+
         {# ---- Summary stats ---- #}
         <div class="profile-stats">
             <div class="profile-stat-card">
