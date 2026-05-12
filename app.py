@@ -144,9 +144,19 @@ def profile():
         session.clear()
         return redirect(url_for("login"))
 
-    stats = get_summary_stats(user_id)
-    transactions = get_recent_transactions(user_id)
-    categories = get_category_breakdown(user_id)
+    start = request.args.get("start", "").strip()
+    end = request.args.get("end", "").strip()
+
+    # Discard both if start > end
+    if start and end and start > end:
+        start, end = "", ""
+
+    start_date = start or None
+    end_date = end or None
+
+    stats = get_summary_stats(user_id, start_date=start_date, end_date=end_date)
+    transactions = get_recent_transactions(user_id, start_date=start_date, end_date=end_date)
+    categories = get_category_breakdown(user_id, start_date=start_date, end_date=end_date)
 
     return render_template(
         "profile.html",
@@ -154,6 +164,8 @@ def profile():
         stats=stats,
         transactions=transactions,
         categories=categories,
+        start=start,
+        end=end,
     )
 
 
